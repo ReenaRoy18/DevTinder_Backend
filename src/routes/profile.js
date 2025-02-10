@@ -13,7 +13,7 @@ profileRouter.get("/profile", userAuth, async (req, res) => {
         const user = req.user;
         console.log(user);
 
-        res.status(200).json({ message: user })
+        res.status(200).json({ data: user })
     } catch (error) {
         res.status(500).send("Error " + error.message)
     }
@@ -21,7 +21,7 @@ profileRouter.get("/profile", userAuth, async (req, res) => {
 
 profileRouter.patch("/profile", userAuth, async (req, res) => {
     try {
-        ValidateEditProfile(req);
+        // ValidateEditProfile(req);
         const loggedInUser = req.user;
         console.log("loggedInUser", loggedInUser);
 
@@ -32,7 +32,7 @@ profileRouter.patch("/profile", userAuth, async (req, res) => {
         console.log("loggedInUser2", loggedInUser);
 
         await loggedInUser.save();
-        res.send("updated successfully")
+        res.json({ok:true, message:"updated successfully", data:loggedInUser})
     } catch (error) {
         res.status(500).send("Error " + error.message)
 

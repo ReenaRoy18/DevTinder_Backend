@@ -12,7 +12,7 @@ const User = require("../model/user.js")
 
 // const userAuth = (req,res,next)=>{
 //     const token ="xyez";
-//     const isAdminAuthorized = token === "xyz";
+//     const isAdminAuthorized = token === "xyz";88
 //     if(!isAdminAuthorized){
 //         res.status(401).send("Not AUthorized") //how to pass error from one module to other module
 //         // throw new Error("User Not AUthorized")
@@ -28,7 +28,7 @@ const userAuth = async(req,res,next)=>{
    try {
     const {token} = req.cookies;
     if(!token){
-        throw new Error("Token is not valid!!!")
+        return res.status(401).json({message:"Please Login"})
     }
     const decoded = await jwt.verify(token,"DevTinder@18")
     const {_id} = decoded;;

@@ -66,11 +66,11 @@ const userSchema = new mongoose.Schema({
     },
     about: {
         type: String,
-        validate(value){
-            if(/[$#%]/.test(value)){
-                throw new Error("No special characters are allowed")
-            }
-        }
+        // validate(value){
+        //     if(/[$#%]/.test(value)){
+        //         throw new Error("No special characters are allowed")
+        //     }
+        // }
     },
     skills: {
         type: [String]

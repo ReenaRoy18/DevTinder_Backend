@@ -25,7 +25,7 @@ const ValidateEditProfile = (req, res, next) => {
     if (firstName || lastName || emailId) {
         console.log("enter condition");
         
-        if (!firstName || !lastName) {
+        if (firstName==="" || lastName==="") {
             throw new Error("Name is not valid");
         } else if (firstName.length < 5 || firstName.length > 15) {
             throw new Error("min 5 and max is 15")
